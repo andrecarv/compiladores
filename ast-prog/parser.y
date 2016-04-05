@@ -10,6 +10,7 @@ extern void yyerror(const char* s, ...);
  */
 %union {
     int integer;
+    char * var;
     AST::Node *node;
     AST::Block *block;
 }
@@ -17,7 +18,8 @@ extern void yyerror(const char* s, ...);
 /* token defines our terminal symbols (tokens).
  */
 %token <integer> T_INT
-%token T_PLUS T_NL T_MULT
+%token <char *> T_VAR
+%token T_PLUS T_NL T_MULT T_VAR T_ATRB
 
 /* type defines the type of our nonterminal symbols.
  * Types should match the names used in the union.
@@ -48,13 +50,17 @@ lines   : line { $$ = new AST::Block(); $$->lines.push_back($1); }
         ;
 
 line    : T_NL { $$ = NULL; } /*nothing here to be used */
+        | atrb expr T_NL
         | expr T_NL /*$$ = $1 when nothing is said*/
         ;
 
 expr    : T_INT { $$ = new AST::Integer($1); }
         | expr T_PLUS expr { $$ = new AST::BinOp($1,AST::plus,$3); std::cout << "Hello there, I've found a plus sign :)\n";}
         | expr T_MULT expr { $$ = new AST::BinOp($1,AST::mult,$3); std::cout << "Hey, there's a multiplication right here! :D\n";}
-        | expr error { yyerrok; $$ = $1; } /*just a point for error recovery*/
+        | expr error { yyerrok; $$ = $1; }/*just a point for error recovery*/
+        ;
+atrb    : T_VAR T_ATRB expr {$$ = new AST::Variable($1,$3);
+        std::cout << "Hey mothafrogger, variable declared.";}
         ;
 
 %%

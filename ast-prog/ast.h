@@ -27,6 +27,15 @@ class Integer : public Node {
         int computeTree();
 };
 
+class Variable : public Node {
+    public:
+        char * name;
+        int value;
+        Variable(char * name, int value): name(name), value(value) {  }
+        void printTree();
+        int computeTree();
+}
+
 class BinOp : public Node {
     public:
         Operation op;
@@ -47,4 +56,3 @@ class Block : public Node {
 };
 
 }
-
