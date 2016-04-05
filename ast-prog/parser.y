@@ -10,7 +10,7 @@ extern void yyerror(const char* s, ...);
  */
 %union {
     int integer;
-    char * var;
+    char * variable;
     AST::Node *node;
     AST::Block *block;
 }
@@ -19,13 +19,13 @@ extern void yyerror(const char* s, ...);
  */
 %token <integer> T_INT
 %token <char *> T_VAR
-%token T_PLUS T_NL T_MULT T_VAR T_ATRB
+%token T_PLUS T_NL T_MULT T_ATRB
 
 /* type defines the type of our nonterminal symbols.
  * Types should match the names used in the union.
  * Example: %type<node> expr
  */
-%type <node> expr line
+%type <node> expr line atrb
 %type <block> lines program
 
 /* Operator precedence for mathematical operators

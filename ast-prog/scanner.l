@@ -10,11 +10,12 @@ void yyerror(const char* s, ...);
 
 digs [0-9]+
 chars [A-z]+
+
 %%
 
 [ \t]               ; //ignores spaces
 {digs}              {yylval.integer = std::atoi(yytext); return T_INT;}
-{chars}             {yylval.variable = static_cast<char*>(yytext); return T_VAR;}
+{chars}             {yylval.variable = yytext; return T_VAR;}
 "+"                 {return T_PLUS;}
 "*"                 {return T_MULT;}
 \n                  {return T_NL;}

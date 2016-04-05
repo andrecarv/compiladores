@@ -62,7 +62,7 @@ union YYSTYPE
 #line 11 "parser.y" /* yacc.c:1909  */
 
     int integer;
-    char * var;
+    char * variable;
     AST::Node *node;
     AST::Block *block;
 
