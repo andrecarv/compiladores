@@ -8,6 +8,11 @@ void Integer::printTree(){
     return;
 }
 
+void Variable::printTree(){
+    std::cout << name << " = " << value;
+    return;
+}
+
 void BinOp::printTree(){
     left->printTree();
     switch(op){
@@ -23,6 +28,10 @@ void Block::printTree(){
         line->printTree();
         std::cout << std::endl;
     }
+}
+
+int Variable::computeTree(){
+    return value;
 }
 
 /* Compute methods */

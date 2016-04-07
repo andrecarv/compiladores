@@ -34,6 +34,7 @@ class Variable : public Node {
         Variable(char * name, int value): name(name), value(value) {  }
         void printTree();
         int computeTree();
+
 };
 
 class BinOp : public Node {

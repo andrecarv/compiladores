@@ -15,9 +15,10 @@ chars [A-z]+
 
 [ \t]               ; //ignores spaces
 {digs}              {yylval.integer = std::atoi(yytext); return T_INT;}
-{chars}             {yylval.variable = yytext; return T_VAR;}
+{chars}             {yylval.name = yytext; return T_NAM;}
 "+"                 {return T_PLUS;}
 "*"                 {return T_MULT;}
+"="                 {return T_ATRB;}
 \n                  {return T_NL;}
 .                   {yyerror("Unknown token! %c\n", *yytext);} /*complains about every unknown character*/
 
