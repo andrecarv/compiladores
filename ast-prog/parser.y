@@ -74,7 +74,8 @@ expr    : T_INT { $$ = new AST::Integer($1); }
 
 AST::Variable* get_variable(char* name){
     int i = 0;
-    while (&variables[i] != NULL && i < n_variables){
+    std::cout << name<<".\n";
+while (&variables[i] != NULL && i < n_variables){
         if (variables[i].name == name)
             return &variables[i];
         i++;
