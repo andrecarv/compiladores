@@ -9,14 +9,15 @@ void yyerror(const char* s, ...);
 %option noyywrap nodefault yylineno
 
 digs [0-9]+
-chars [A-z]+
+chars [a-z]
 
 %%
 
 [ \t]               ; //ignores spaces
 {digs}              {yylval.integer = std::atoi(yytext); return T_INT;}
-{chars}             {yylval.name = yytext; return T_NAM;}
+{chars}+            {yylval.name = yytext; return T_NAM;}
 "+"                 {return T_PLUS;}
+"sair"              {return T_SAIR;}
 "*"                 {return T_MULT;}
 "="                 {return T_ATRB;}
 \n                  {return T_NL;}

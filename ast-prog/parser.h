@@ -50,7 +50,8 @@ extern int yydebug;
     T_PLUS = 260,
     T_NL = 261,
     T_MULT = 262,
-    T_ATRB = 263
+    T_ATRB = 263,
+    T_SAIR = 264
   };
 #endif
 
@@ -66,7 +67,7 @@ union YYSTYPE
     AST::Node *node;
     AST::Block *block;
 
-#line 70 "parser.h" /* yacc.c:1909  */
+#line 71 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

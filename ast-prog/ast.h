@@ -31,6 +31,7 @@ class Variable : public Node {
     public:
         char * name;
         int value;
+        Variable() { }
         Variable(char * name, int value): name(name), value(value) {  }
         void printTree();
         int computeTree();
