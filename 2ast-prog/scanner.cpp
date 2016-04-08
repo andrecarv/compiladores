@@ -398,8 +398,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 7
-#define YY_END_OF_BUFFER 8
+#define YY_NUM_RULES 10
+#define YY_END_OF_BUFFER 11
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -407,10 +407,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[12] =
+static yyconst flex_int16_t yy_accept[18] =
     {   0,
-        0,    0,    8,    6,    1,    5,    4,    3,    2,    2,
-        0
+        0,    0,   11,    9,    1,    8,    6,    5,    7,    2,
+        4,    4,    2,    4,    4,    3,    0
     } ;
 
 static yyconst YY_CHAR yy_ec[256] =
@@ -419,16 +419,16 @@ static yyconst YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    4,    5,    1,    1,    1,    1,    6,    6,    6,
-        6,    6,    6,    6,    6,    6,    6,    1,    1,    1,
+        1,    4,    5,    6,    1,    1,    1,    7,    7,    7,
+        7,    7,    7,    7,    7,    7,    7,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    8,    8,    8,    9,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+       10,   11,    8,    8,    8,    8,    8,    8,    8,    8,
+        8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
+        8,    8,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -445,39 +445,42 @@ static yyconst YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst YY_CHAR yy_meta[7] =
+static yyconst YY_CHAR yy_meta[12] =
     {   0,
-        1,    1,    1,    1,    1,    2
+        1,    1,    1,    1,    1,    1,    1,    2,    2,    2,
+        2
     } ;
 
-static yyconst flex_uint16_t yy_base[13] =
+static yyconst flex_uint16_t yy_base[19] =
     {   0,
-        0,    0,    8,    9,    9,    9,    9,    9,    0,    0,
-        9,    5
+        0,    0,   17,   18,   18,   18,   18,   18,   18,    9,
+        0,    5,    7,    0,    2,    0,   18,   10
     } ;
 
-static yyconst flex_int16_t yy_def[13] =
+static yyconst flex_int16_t yy_def[19] =
     {   0,
-       11,    1,   11,   11,   11,   11,   11,   11,   12,   12,
-        0,   11
+       17,    1,   17,   17,   17,   17,   17,   17,   17,   17,
+       18,   18,   17,   18,   18,   18,    0,   17
     } ;
 
-static yyconst flex_uint16_t yy_nxt[16] =
+static yyconst flex_uint16_t yy_nxt[30] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,   11,    3,   11,
-       11,   11,   11,   11,   11
+        4,    5,    6,    7,    8,    9,   10,   11,   12,   11,
+       11,   14,   16,   13,   15,   13,   17,    3,   17,   17,
+       17,   17,   17,   17,   17,   17,   17,   17,   17
     } ;
 
-static yyconst flex_int16_t yy_chk[16] =
+static yyconst flex_int16_t yy_chk[30] =
     {   0,
-        1,    1,    1,    1,    1,    1,   12,    3,   11,   11,
-       11,   11,   11,   11,   11
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,   18,   15,   13,   12,   10,    3,   17,   17,   17,
+       17,   17,   17,   17,   17,   17,   17,   17,   17
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static yyconst flex_int32_t yy_rule_can_match_eol[8] =
+static yyconst flex_int32_t yy_rule_can_match_eol[11] =
     {   0,
-0, 0, 0, 0, 1, 0, 0,     };
+0, 0, 0, 0, 0, 0, 0, 1, 0, 0,     };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -500,7 +503,7 @@ char *yytext;
 #include "parser.h"
 extern int yylineno;
 void yyerror(const char* s, ...);
-#line 504 "scanner.cpp"
+#line 507 "scanner.cpp"
 
 #define INITIAL 0
 
@@ -718,10 +721,10 @@ YY_DECL
 		}
 
 	{
-#line 13 "scanner.l"
+#line 14 "scanner.l"
 
 
-#line 725 "scanner.cpp"
+#line 728 "scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -748,13 +751,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 12 )
+				if ( yy_current_state >= 18 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 9 );
+		while ( yy_base[yy_current_state] != 18 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -790,41 +793,56 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "scanner.l"
+#line 16 "scanner.l"
 ; //ignores spaces
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 "scanner.l"
+#line 17 "scanner.l"
 {yylval.integer = std::atoi(yytext); return T_INT;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 "scanner.l"
-{return T_PLUS;}
+#line 18 "scanner.l"
+{return T_DEF;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 18 "scanner.l"
-{return T_MULT;}
+#line 19 "scanner.l"
+{yylval.name = yytext; return T_NAM;}
 	YY_BREAK
 case 5:
-/* rule 5 can match eol */
 YY_RULE_SETUP
-#line 19 "scanner.l"
-{return T_NL;}
+#line 20 "scanner.l"
+{return T_PLUS;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 20 "scanner.l"
-{yyerror("Unknown token! %c\n", *yytext);} /*complains about every unknown character*/
+#line 21 "scanner.l"
+{return T_MULT;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 22 "scanner.l"
+{return T_COMMA;}
+	YY_BREAK
+case 8:
+/* rule 8 can match eol */
+YY_RULE_SETUP
+#line 23 "scanner.l"
+{return T_NL;}
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 24 "scanner.l"
+{yyerror("Unknown token! %c\n", *yytext);} /*complains about every unknown character*/
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 26 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 828 "scanner.cpp"
+#line 846 "scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1117,7 +1135,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 12 )
+			if ( yy_current_state >= 18 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1145,11 +1163,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 12 )
+		if ( yy_current_state >= 18 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 11);
+	yy_is_jam = (yy_current_state == 17);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1837,7 +1855,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 22 "scanner.l"
+#line 26 "scanner.l"
 
 
 

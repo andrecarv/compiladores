@@ -46,9 +46,12 @@ extern int yydebug;
   enum yytokentype
   {
     T_INT = 258,
-    T_PLUS = 259,
-    T_MULT = 260,
-    T_NL = 261
+    T_NAM = 259,
+    T_PLUS = 260,
+    T_MULT = 261,
+    T_DEF = 262,
+    T_COMMA = 263,
+    T_NL = 264
   };
 #endif
 
@@ -57,13 +60,14 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "parser.y" /* yacc.c:1909  */
+#line 14 "parser.y" /* yacc.c:1909  */
 
     int integer;
+    char * name;
     AST::Node *node;
     AST::Block *block;
 
-#line 67 "parser.h" /* yacc.c:1909  */
+#line 71 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
