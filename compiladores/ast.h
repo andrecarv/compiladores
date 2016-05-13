@@ -3,65 +3,58 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 extern void yyerror(const char *s, ...);
 
 namespace AST {
 
 //Binary operations
-enum Operation { plus, times, assign };
+enum Operation { plus, times, minus, division, assign };
 
 class Node;
 
 typedef std::vector<Node*> NodeList; //List of ASTs
 
-template<typename T>
 class Node {
     public:
         virtual ~Node() {}
         virtual void printTree(){}
-        virtual T computeTree() { return NULL; }
+        virtual string get_type() { return "NULL"; }
 };
 
-template<typename T>
-class Data : public Node<T> {
-    T value;
-    Data(T value) : value(value) {  }
+class Data : public Node {
+    string _value;
+    string _type
+    Data(string _type, string _value) : _type(_type), _value(_value) {  }
     void printTree();
-    T computeTree();
+    string get_type() {return _type;}
 }
 
-template<typename T, typename U>
-class BinOp : public Node<NULL> {
+class BinOp : public Node {
     public:
         Operation op;
         Node *left;
         Node *right;
-        auto result;
-        BinOp(Node<T> *left, Operation op, Node<U> *right) :
+        BinOp(Node *left, Operation op, Node *right) :
             left(left), right(right), op(op) { }
         void printTree();
-        void computeTree();
-        void getResult(void * result) {*result = this.result;}
+        string get_type();
 };
 
-template<typename T>
-class Block : public Node<T> {
+class Block : public Node {
     public:
         NodeList lines;
         Block() { }
         void printTree();
-        T computeTree();
 };
 
-template<typename T>
-class Variable : public Node<T> {
+class Variable : public Node {
      public:
-         std::string id;
+         string id;
          Node *next;
          Variable(std::string id, Node *next) : id(id), next(next) { }
          void printTree();
-         T computeTree();
 };
 
 }

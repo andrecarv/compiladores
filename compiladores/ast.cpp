@@ -6,25 +6,43 @@ using namespace AST;
 extern ST::SymbolTable symtab;
 
 /* Print methods */
-void Integer::printTree(){
-    std::cout << value;
+void Data::printTree(){
+    std::cout <<"valor "<< _type << " " << _value;
     return;
 }
 
-void Double::printTree(){
-    std::cout << value[0] << "." << value[1];
-    return;
-}
 
 void BinOp::printTree(){
+    std::cout << "(";
     left->printTree();
     switch(op){
-        case plus: std::cout << " + "; break;
-        case times: std::cout << " * "; break;
-        case assign: std::cout << " = "; break;
+        case plus: std::cout << " soma " << get_type() << " "; break;
+        case times: std::cout << " multiplicacao " << get_type(); break;
+        case minus: std::cout << " menos " << get_type(); break;
+        case division: std::cout << " divisao " << get_type(); break;
+        case greater: std::cout << " maior " << get_type(); break;
+        case lesser: std::cout << " menor " << get_type(); break;
+        case greater_eq : std::cout << " maior igual " << get_type(); break;
+        case lesser_eq : std::cout << " menor igual " << get_type(); break;
+        case logical_and : std::cout << " e booleano "; break;
+        case logical_or : std::cout << " ou booleano "; break;
+        case equals : std::cout << " igual " << get_type(); break;
+        case different : std::cout << " diferente " << get_type(); break;
+        case assign: std::cout << " := "; break;
     }
     right->printTree();
+    std::cout << ")";
     return;
+}
+
+void UnOp::printTree() {
+    std::cout << "("
+        switch(op){
+            case negate: std::cout << "negacao unaria " << right->get_type();
+            case opposite: std::cout << "menos unario " << right->get_type();
+        }
+    std::cout << ")"
+    right->printTree();
 }
 
 void Block::printTree(){
@@ -42,51 +60,15 @@ void Variable::printTree(){
     std::cout << id;
 }
 
-/* Compute methods */
-int Integer::computeTree(){
-    return value;
-}
+/* get_type method */
 
-int * Double::computeTree(){
-    return value;
-}
-
-Double* Double::operator+(Integer value){
-    int i[2];
-    i[0] = value + this.value[0];
-    i[1] = this.value[1];
-    return new Double::Double(i);
-}
-
-Double* Double::operator+(Double value){
-    int i[2];
-    i[1]
-}
-
-int BinOp::computeTree(){
-    int value, lvalue, rvalue;
-    lvalue = left->computeTree();
-    rvalue = right->computeTree();
-    switch(op){
-        case plus: value = lvalue + rvalue; break;
-        case times: value = lvalue * rvalue; break;
-        case assign:
-            Variable* leftvar = dynamic_cast<Variable*>(left);
-            symtab.entryList[leftvar->id].value = rvalue;
-            value = rvalue;
-    }
-    return value;
-}
-
-int Block::computeTree(){
-    int value;
-    for (Node* line: lines) {
-        value = line->computeTree();
-         std::cout << "Computed " << value << std::endl;
-    }
-    return 0;
-}
-
-int Variable::computeTree(){
-    return symtab.entryList[id].value;
+string BinOp::get_type() {
+     if (left->get_type() == right->get_type())
+         return left->get_type();
+     else {
+        if (left->get_type() == "real")
+            return left->get_type();
+        else
+            return right->get_type();
+     }
 }
